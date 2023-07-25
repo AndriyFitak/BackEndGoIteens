@@ -1,0 +1,14 @@
+product = { 
+    id string,
+    name string,
+    imgUrl string,
+    price number,
+    isSale boolean
+    size number,
+    moreInfo string
+}
+
+
+axios.post("example.com", {body}) -- {object}
+
+axios.get("example.com?id=1&name=TV") -- query

@@ -6,6 +6,8 @@ import bodyParser from "body-parser"
 
 import config from "./config.js"
 import productsRouter from "./routes/products.js"
+import products from "./models/products.js"
+import reviewRouter from "./routes/reviews.js"
 
 const app = express()
 const server = http.createServer(app)
@@ -16,6 +18,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(cors(config.corsOptions))
 
 app.use("/products", productsRouter)
+app.use("/reviews", reviewRouter)
 
 mongoose.connect(config.mongoUrl)
     .then(() => { 
@@ -25,6 +28,12 @@ mongoose.connect(config.mongoUrl)
         console.log(err)
     })
 
+/*setInterval(async()=>{
+    await products.deleteMany({name:undefined})
+        .then(()=>{
+            console.log("products deleted")
+        })
+},10000)*/
 
 server.listen(config.port, () => { 
     console.log(`Server has been started on port ${config.port}`)

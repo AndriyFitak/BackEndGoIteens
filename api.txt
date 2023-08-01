@@ -12,3 +12,12 @@ product = {
 axios.post("example.com", {body}) -- {object}
 
 axios.get("example.com?id=1&name=TV") -- query
+
+
+Reviews{
+    id: string,
+    name: string,
+    idProduct: string,
+    text: string,
+    email: string
+}

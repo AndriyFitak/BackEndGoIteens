@@ -1,4 +1,4 @@
-import reviews from "../models/reviews"
+import reviews from "../models/reviews.js"
 import { nanoid } from "nanoid"
 
 export const getList = async (req,res) => {

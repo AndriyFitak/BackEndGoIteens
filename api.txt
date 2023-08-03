@@ -21,3 +21,18 @@ Reviews{
     text: string,
     email: string
 }
+
+order {
+    id string ,
+    name string ,
+    surname string ,
+    phone-number string ,
+    email string ,
+    count number ,
+    delivery{
+        type string ,
+        city string
+    },
+    payType string ,
+    finishPrice number
+}

@@ -8,6 +8,7 @@ import config from "./config.js"
 import productsRouter from "./routes/products.js"
 import products from "./models/products.js"
 import reviewRouter from "./routes/reviews.js"
+import orderRouter from "./routes/order.js"
 
 const app = express()
 const server = http.createServer(app)
@@ -19,6 +20,7 @@ app.use(cors(config.corsOptions))
 
 app.use("/products", productsRouter)
 app.use("/reviews", reviewRouter)
+app.use("/orders", orderRouter)
 
 mongoose.connect(config.mongoUrl)
     .then(() => { 

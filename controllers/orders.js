@@ -15,6 +15,7 @@ export const orderCreate = async (req,res) => {
         payType: req.body.payType,
         finishPrice: req.body.finishPrice
     })
+    
     await newOrder.save()
         .then(()=>{ 
             res.status(201).json({

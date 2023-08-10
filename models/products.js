@@ -29,6 +29,10 @@ const productSchema = new Schema({
     moreInfo: { 
         type: String,
         require: true
+    },
+    category: { 
+        type: String,
+        require: true
     }
 })
 

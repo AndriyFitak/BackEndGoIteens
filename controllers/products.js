@@ -9,7 +9,8 @@ export const createItem = async(req,res) =>{
         price: req.body.price,
         isSale: req.body.isSale,
         size: req.body.size,
-        moreInfo: req.body.moreInfo
+        moreInfo: req.body.moreInfo,
+        category: req.body.category
     })
     await newProduct.save()
         .then(()=>{
@@ -69,6 +70,19 @@ export const getList = async (req,res) => {
     } else {
         res.status(404).json({
             message: `Not found product with id: ${req.query.id}`
+        })
+    }
+ }
+
+ export const getListByCategory = async (req,res) => { 
+    const productsList = await products.find({
+        category: req.query.category
+    })
+    if (productsList) { 
+        res.status(200).json(productsList)
+    } else { 
+        res.status(404).json({
+            message: "error"
         })
     }
  }
